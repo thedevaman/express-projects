@@ -1,5 +1,7 @@
 const express = require('express')
 const app = express();
+// or
+// const express = require('express')();
 
 app.get("",(req,resp)=>{
    resp.send("<h1>This is nodemon js page</h1>")
