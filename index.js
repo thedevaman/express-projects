@@ -1,18 +1,22 @@
-const express = require('express')
+import express from 'express'; //ecmascript module syntax
+import home from './pages/home.js';
+import about from './pages/about.js';
+import contact from './pages/contact.js';
+// const express = require('express') //common js(vanilla) module syntax
 const app = express();
 // or
 // const express = require('express')();
 
 app.get("",(req,resp)=>{
-   resp.send("<h1>This is nodemon js page</h1>")
+   resp.send(home())
 });
 
 app.get("/about",(req,resp)=>{
-   resp.send("<h1>This is About page</h1>")
+   resp.send(about())
 });
 
 app.get("/contact",(req,resp)=>{
-   resp.send("<h1>This is Contact page</h1>")
+   resp.send(contact())
 });
 
 
