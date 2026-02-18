@@ -1,15 +1,23 @@
 import express from 'express'
-import path from 'path'
+import path from 'path'  // path is defined in same file
+// import abs_path from './path.js';  // method to import abs_path from another file
 const app = express();
 
+ const abs_path = path.resolve('view') //absolute path h // path is defined in same file
+const publicPath = path.resolve('public')
+
+app.use(express.static(publicPath))
+
 app.get("/",(res,resp)=>{
-   const abs_path = path.resolve('view/home.html')  //absolute path h
-   resp.sendFile(abs_path)
+   resp.sendFile(abs_path+"/home.html")
 })
 
 app.get("/login",(res,resp)=>{
-   const abs_path = path.resolve('view/login.html')  //absolute path h
-   resp.sendFile(abs_path)
+   resp.sendFile(abs_path+"/login.html")
+})
+
+app.use((res,resp)=>{
+   resp.status(404).sendFile(abs_path+"/404page.html")
 })
 
 
